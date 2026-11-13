@@ -5,5 +5,6 @@
 ## Collection of Hydrocarbon degradation genes in Arctic samples from the GM group
 First step is to collect all hydrocarbon degradation genes present in metagenomic samples from the Canadian Arctic previously assembled at the Geomicrobiology Group.
 
+#### Annotation
 Raw reads from metagenomic sequences from Hudson Bay and Northwest Passage were assembled previously using `megahit`. The output contigs were annotated using `prodigal` - `scripts/prodigal.annotation.sh`
 
