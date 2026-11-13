@@ -15,6 +15,6 @@ cd $SCRATCH
 for file in *.contigs.fasta
 do
 sample=`basename -s _final.contigs.fasta $file`
-echo "Annotation with bakta for the sample assembly $sample"
-bakta --db db-light --output bakta.out/$sample --meta --threads 4 $file
+echo "Annotation with PRODIGAL for the sample assembly $sample"
+prodigal -a $sample -o $sample.annotation -p meta $file
 done
