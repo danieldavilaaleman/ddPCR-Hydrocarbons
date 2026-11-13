@@ -3,6 +3,7 @@
 #SBATCH --tasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --time=01:00:00
+#SBATCH --output=prodigal.out
 
 ####### Set environment variables ###############
 module load bioconda
