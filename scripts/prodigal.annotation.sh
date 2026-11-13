@@ -17,5 +17,5 @@ for file in *.contigs.fasta
 do
 sample=`basename -s _final.contigs.fasta $file`
 echo "Annotation with PRODIGAL for the sample assembly $sample"
-prodigal -a $sample -o $sample.annotation -p meta $file
+prodigal -a $sample.faa -o $sample.annotation.gbk -p meta -i $file
 done
