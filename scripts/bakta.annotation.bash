@@ -12,9 +12,9 @@ SCRATCH=/scratch/$SLURM_JOBID
 
 cd $SCRATCH 
 ####### Pre-processing data  ###############
-for file in /work/ebg_lab/gm/GENICE/M_Bautista/maria/GENICE/MegaHIT_contigs/*.contigs.fasta
+for file in *.contigs.fasta
 do
 sample=`basename -s _final.contigs.fasta $file`
 echo "Annotation with bakta for the sample assembly $sample"
-bakta --db /home/franciscodaniel.davi/projects/staph/db-light --output bakta.out/$sample --meta --threads 4 $file
+bakta --db db-light --output bakta.out/$sample --meta --threads 4 $file
 done
