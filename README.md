@@ -13,3 +13,14 @@ Genes predicted from each contig were query against the CANT-HYD Database using 
 
 #### 3. Clustering proteins
 Identified proteins as hydrocarbon degrading enzymes from all the samples where subset and clustered to 90% of sequence identity and asking for the representative sequence cover at least 95% of the members using `linclust` - `scripts/clustering.sh`
+
+The total number of HD enzymes before clustering:
+     23 AlkB
+     24 CYP153
+      2 MAH_alpha
+      3 MAH_beta
+      4 NdoB
+      7 NdoC
+      2 non_NdoB_type
+      2 TmoA_BmoA
+      2 TmoE
