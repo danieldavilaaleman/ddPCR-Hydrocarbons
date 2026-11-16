@@ -13,5 +13,6 @@ SCRATCH=/scratch/$SLURM_JOBID
 
 cd $SCRATCH 
 ####### Pre-processing data  ###########
-cat $WORKDIR/*.HDG.faa > CArctic.HDG.faa
-mmseqs easy-linclust CArctic.HDG.faa clustered_proteins tmp --min-seq-id 0.9 -c 0.95 --cov-mode 1
+cat $WORKDIR/../annotation/*.faa > CArctic.faa
+seqtk subseq CArtic.HDG.faa $WORKDIR/../canthyd.out/n-alkane.IDs.txt > n-alkanes.faa
+mmseqs easy-linclust n-alkanes.faa clustered_proteins tmp --min-seq-id 0.9 -c 0.95 --cov-mode 1
