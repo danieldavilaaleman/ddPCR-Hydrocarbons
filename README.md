@@ -29,3 +29,5 @@ The total number of HD enzymes before clustering:
 
 * SCRIPT: `cat *.tblout | grep -v "^#" | tr -s " " | sed "s/ /\t/g" | cut -f 3 | sort | uniq -c` 
 Therefore, lets design the primers for **CYP153 and AlkB**
+
+From 47 n-alkanes enzymes identified **28 Representative sequences where obtained**
