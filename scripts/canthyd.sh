@@ -17,7 +17,5 @@ module load bioconda
 ls *.faa | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .faa)
 hmmsearch --cpu 3 --cut_tc --tblout ${name}.tblout CANT-HYD.hmm "{}" > ${name}.out'
 
-# For extracting the protein sequences of the protein IDs identified as HGD 
-ls *.tblout | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .tblout)
-cat "{}" | grep -v "^#" | sed "s/ /\t/g" | cut -f 1 > ${name}.IDs.txt
-seqtk subseq ../annotation/${name}.faa ${name}.IDs.txt > ${name}.HDG.faa'
+# For extracting the protein sequences of the protein IDs identified as AlkB or CYP153
+cat *.tblout | grep -v "^#" | tr -s " " | sed "s/ /\t/g" | awk '$3 == "AlkB" || $3 == "CYP153"' | cut -f 1 > n-alkane.IDs.txt
