@@ -11,5 +11,7 @@ module load bioconda
 WORKDIR=`pwd`
 SCRATCH=/scratch/$SLURM_JOBID
 
+cd $SCRATCH 
+####### Pre-processing data  ###############
 
 hmmsearch --tblout hmmsearch_metagenome.tblout CANT-HYD.hmm metagenome_proteins.faa > hmmsearch_metagenome.out
