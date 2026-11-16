@@ -15,4 +15,9 @@ module load bioconda
 # sh -c '...' Ensures the redicrection applies individually to each parallel job rather than a single one from the xargs command
 
 ls *.faa | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .faa)
-hmmsearch --cpu 3 --cut_tc --tblout "${name}.tblout" CANT-HYD.hmm "{}" > "${name}.out"'
+hmmsearch --cpu 3 --cut_tc --tblout ${name}.tblout CANT-HYD.hmm "{}" > ${name}.out'
+
+# For extracting the protein sequences of the protein IDs identified as HGD 
+ls *.tblout | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .tblout)
+cat "{}" | grep -v "^#" | sed "s/ /\t/g" | cut -f 1 > ${name}.IDs.txt
+seqtk subseq ../annotation/${name}.faa ${name}.IDs.txt > ${name}.HDG.faa'
