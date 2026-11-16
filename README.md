@@ -5,6 +5,10 @@
 ## Collection of Hydrocarbon degradation genes in Arctic samples from the GM group
 First step is to collect all hydrocarbon degradation genes present in metagenomic samples from the Canadian Arctic previously assembled at the Geomicrobiology Group.
 
-#### Annotation
-Raw reads from metagenomic sequences from Hudson Bay and Northwest Passage were assembled previously using `megahit`. The output contigs were annotated using `prodigal` - `scripts/prodigal.annotation.sh`
+#### 1. Gene prediction
+Raw reads from metagenomic sequences from Hudson Bay and Northwest Passage were assembled previously using `megahit`. The Gene prediction of the output contigs were annotated using `prodigal` - `scripts/prodigal.annotation.sh`
+
+#### 2. Hydrocarbon degradation identification 
+Genes predicted from each contig were query against the CANT-HYD Database using the trusted cutoff - `scripts/cant-hyd.sh`
+
 
