@@ -27,3 +27,4 @@ The total number of HD enzymes before clustering:
 | 2 | TmoA_BmoA |
 | 2 | TmoE |
 
+* SCRIPT: `cat *.tblout | grep -v "^#" | tr -s " " | sed "s/ /\t/g" | cut -f 3 | sort | uniq -c` 
