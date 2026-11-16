@@ -11,4 +11,5 @@ Raw reads from metagenomic sequences from Hudson Bay and Northwest Passage were 
 #### 2. Hydrocarbon degradation identification 
 Genes predicted from each contig were query against the CANT-HYD Database using the trusted cutoff - `scripts/cant-hyd.sh`
 
-
+#### 3. Clustering proteins
+Identified proteins as hydrocarbon degrading enzymes from all the samples where subset and clustered to 90% of sequence identity and asking for the representative sequence cover at least 95% of the members using `linclust` - `scripts/clustering.sh`
