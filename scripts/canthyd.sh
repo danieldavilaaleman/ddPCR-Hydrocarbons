@@ -14,8 +14,14 @@ module load bioconda
 # --cpus 3 Prevents hmmsearch from taking extra threads
 # sh -c '...' Ensures the redicrection applies individually to each parallel job rather than a single one from the xargs command
 
-ls *.faa | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .faa)
+ls annotation/*.faa | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .faa)
 hmmsearch --cpu 3 --cut_tc --tblout ${name}.tblout CANT-HYD.hmm "{}" > ${name}.out'
 
-# For extracting the protein sequences of the protein IDs identified as AlkB or CYP153
-cat *.tblout | grep -v "^#" | tr -s " " | sed "s/ /\t/g" | awk '$3 == "AlkB" || $3 == "CYP153"' | cut -f 1 > n-alkane.IDs.txt
+# For extracting the protein sequences of the protein IDs identified as AlkB or CYP153 for each sample
+for sample in canthyd.out/*.tblout
+do
+name=$(basename $sample .tblout)
+grep -v "^#" $sample | tr -s " " | sed "s/ /\t/g" | awk '$3 == "AlkB" || $3 == "CYP153"' | cut -f 1 >  ${name}.n-alkanes.IDs.txt
+seqtk subseq ../annotation/${name}.faa ${name}.n-alkanes.IDs.txt > ${name}.n-alkanes.faa
+done
+
