@@ -15,4 +15,4 @@ module load bioconda
 # sh -c '...' Ensures the redicrection applies individually to each parallel job rather than a single one from the xargs command
 
 ls *.faa | xargs -I {} -P 4 sh -c 'name=$(basename "{}" .faa)
-hmmsearch --cpu 3 --cut_tc --tblout "${name}.tblout" CANT-HYD.hmm "{}" > "{name}.out"'
+hmmsearch --cpu 3 --cut_tc --tblout "${name}.tblout" CANT-HYD.hmm "{}" > "${name}.out"'
