@@ -12,8 +12,8 @@ SCRATCH=/scratch/$SLURM_JOBID
 
 cd $SCRATCH 
 ####### Pre-processing data  ###########
-~/software/DeGenPrime/bin/degenprime --input_file $WORDIR/alkb.msa.fasta \
---output_file alkb_primers.csv --protein
+~/software/DeGenPrime/bin/degenprime --input_file:$WORDIR/alkb.msa.fasta \
+--output_file:alkb_primers.csv --protein
 
-~/software/DeGenPrime/bin/degenprime --input_file $WORDIR/cyp153.msa.fasta \
---output_file cyp153_primers.csv --protein
+~/software/DeGenPrime/bin/degenprime --input_file:$WORDIR/cyp153.msa.fasta \
+--output_file:cyp153_primers.csv --protein
