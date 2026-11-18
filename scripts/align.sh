@@ -18,6 +18,4 @@ clustalo -i $WORKDIR/clustered_alkB_proteins_rep_seq.fasta \
 -v
 
 clustalo -i $WORKDIR/clustered_cyp153_proteins_rep_seq.fasta \
--o cyp153.msa.fasta
---threads 2
--v
+-o cyp153.msa.fasta --threads 2 -v
