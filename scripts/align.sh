@@ -7,15 +7,14 @@
 ####### Set environment variables ###############
 module load bioconda
 
-WORKDIR=`pwd`
-SCRATCH=/scratch/$SLURM_JOBID
+# First convert aa to nt using DeGenPrime
+~/software/DeGenPrime/bin/degenprime --input_file:clustered_alkB_proteins_rep_seq.fasta \
+--output_file:alkB_rep_seq.fna --protein
 
-cd $SCRATCH 
-####### Pre-processing data  ###########
-clustalo -i $WORKDIR/clustered_alkB_proteins_rep_seq.fasta \
--o alkb.msa.fasta
---threads 2
--v
+~/software/DeGenPrime/bin/degenprime --input_file:clustered_cyp153_proteins_rep_seq.fasta \
+--output_file:cyp153_rep_seq.fna --protein
 
-clustalo -i $WORKDIR/clustered_cyp153_proteins_rep_seq.fasta \
--o cyp153.msa.fasta --threads 2 -v
+# Multiple sequence aligment
+
+mafft --localpair --maxiterate 1000 --clustalout --thread 2 alkB_rep_seq.fna > alkB.clust
+mafft --localpair --maxiterate 1000 --clustalout --thread 2 cyp153_rep_seq.fna > cyp153.clust
