@@ -31,3 +31,6 @@ The total number of HD enzymes before clustering:
 Therefore, lets design the primers for **CYP153 and AlkB**
 
 After clusterization, *14* rep proteins from both **AlkB and CYP153** where obtained.
+
+#### 4. Alignment
+For alignment, the first step was to convert the representative amino acid sequences from *AlkB* and *CYP153* to nucleotides using the `--protein` flag from DeGenPrime. Then, perform the nucleotide alignment using `mafft` and finally running `DeGenPrime` with flags `min_temp:58` and `max_temp:63` for the primer predictions. **NOTE:** `--degenerate` flag was ran as well but no primers list were generated. `scripts/align.sh`
