@@ -21,7 +21,9 @@ hmmsearch --cpu 3 --cut_tc --tblout ${name}.tblout CANT-HYD.hmm "{}" > ${name}.o
 for sample in canthyd.out/*.tblout
 do
 name=$(basename $sample .tblout)
-grep -v "^#" $sample | tr -s " " | sed "s/ /\t/g" | awk '$3 == "AlkB" || $3 == "CYP153"' | cut -f 1 >  ${name}.n-alkanes.IDs.txt
-seqtk subseq ../annotation/${name}.faa ${name}.n-alkanes.IDs.txt > ${name}.n-alkanes.faa
+grep -v "^#" $sample | tr -s " " | sed "s/ /\t/g" | awk '$3 == "AlkB"' | cut -f 1 >  ${name}.alkB.IDs.txt
+grep -v "^#" $sample | tr -s " " | sed "s/ /\t/g" | awk '$3 == "CYP153"' | cut -f 1 >  ${name}.cyp153.IDs.txt
+seqtk subseq ../annotation/${name}.faa ${name}.alkB.IDs.txt > ${name}.alkB.faa
+seqtk subseq ../annotation/${name}.faa ${name}.cyp153.IDs.txt > ${name}.cyp153.faa
 done
 
