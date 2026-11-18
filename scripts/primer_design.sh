@@ -12,8 +12,5 @@ SCRATCH=/scratch/$SLURM_JOBID
 
 cd $SCRATCH 
 ####### Pre-processing data  ###########
-~/software/DeGenPrime/bin/degenprime \
---input_file:../4_align/alkB.clust --output_file:alkb.default_primers.csv
-
-~/software/DeGenPrime/bin/degenprime \
---input_file:../4_align/alkB.clust --output_file:alkb.degenerate_primers.csv --degenerate
+ ~/software/DeGenPrime/bin/degenprime --input_file:../4_align/alkB.clust \
+ --output_file:alkb.default_primers.csv --min_temp:58 --max_temp:63
