@@ -36,7 +36,7 @@ After clusterization, *14* rep proteins from both **AlkB and CYP153** where obta
 For alignment, the first step was to convert the representative amino acid sequences from *AlkB* and *CYP153* to nucleotides using the `--protein` flag from DeGenPrime. Then, perform the nucleotide alignment using `mafft` - `scripts/align.sh`
 
 #### 5. Primer design
-Finally running `DeGenPrime` with flags `min_temp:58` and `max_temp:63` for the primer predictions. **NOTE:** `--degenerate` flag was ran as well but no primers list were generated.
+Finally running `DeGenPrime` with flags `min_temp:58` and `max_temp:63` for the primer predictions. **NOTE:** `--degenerate` flag was ran as well, but no primers lists were generated.
 ```
 ./degenprime --input_file:alkB.clust --output_file:alkb_primers.csv --min_temp:58 --max_temp:63
 ```
